@@ -1,6 +1,2 @@
-<<<<<<< HEAD:Dungeon Spells/New Unity Project/ProjectSettings/ProjectVersion.txt
 m_EditorVersion: 5.2.1f1
-=======
-m_EditorVersion: 5.3.2f1
->>>>>>> 8cce07720b1b2e24d5139bdc1a78bac9fe0b6ca9:Dungeon Spells/Sells and shit/ProjectSettings/ProjectVersion.txt
 m_StandardAssetsVersion: 0
