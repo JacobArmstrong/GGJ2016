@@ -21,9 +21,13 @@ public class SpellBook : MonoBehaviour {
 		startPosition = transform.position;
 
 		spellList.Add(new Spell("Fire", "uuuuu"));
-		spellList.Add(new Spell("WAWDAH", "uudlr"));
-		spellList.Add(new Spell("Soft? earth", "udlrl"));
-		spellList.Add(new Spell("$Money$", "urldd"));
+		spellList.Add(new Spell("Grape Soda", "uudlr"));
+		spellList.Add(new Spell("Mangrove", "udlrl"));
+		spellList.Add(new Spell("Crab", "urldd"));
+		spellList.Add(new Spell("Fire", "uuuuu"));
+		spellList.Add(new Spell("Grape Soda", "uudlr"));
+		spellList.Add(new Spell("Mangrove", "udlrl"));
+		spellList.Add(new Spell("Crab", "urldd"));
 		startIndex = 0;
 		endIndex = 5;
 		DrawSpells (startIndex, endIndex);
@@ -33,13 +37,26 @@ public class SpellBook : MonoBehaviour {
 	void Update () {
 		//switch bGetOnScreen when left shift is pressed
 		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
 			bGetOnScreen = !bGetOnScreen;
-		}
 
 		//if bGetOnScreen is true, go to target location, otherwise go to the starting location
-		if(bGetOnScreen)
+		if (bGetOnScreen) {
 			transform.position = Vector2.Lerp (transform.position, targetLocation, slideLerpRate * Time.deltaTime);
+			if (Input.GetKeyDown(KeyCode.A) && startIndex > 0)
+			{
+				startIndex -= 6;
+				endIndex -= 6;
+				DrawSpells (startIndex, endIndex);
+				Debug.Log("A PRESSED");
+			}
+			if (Input.GetKeyDown(KeyCode.D) && endIndex < spellList.Count)
+			{
+				startIndex += 6;
+				endIndex += 6;
+				DrawSpells (startIndex, endIndex);
+				Debug.Log("D PRESSED");
+			}
+		}
 		else
 			transform.position = Vector2.Lerp (transform.position, startPosition, slideLerpRate * Time.deltaTime);
 	}
@@ -49,7 +66,7 @@ public class SpellBook : MonoBehaviour {
 		ClearText ();
 
 		int textSlotIndex = 0;
-		for (int i=0; i <= endIndex; i++, textSlotIndex++){
+		for (int i=startIndex; i <= endIndex; i++, textSlotIndex++){
 			//make sure i doesn't exceed the range of spellList
 			if(i < spellList.Count){
 				//put the ith spell's name into the text
@@ -72,7 +89,7 @@ public class SpellBook : MonoBehaviour {
 			textSlots[i].GetComponent<TextMesh>().text = "";
 			//remove the input icons attatched to the text slots
 			if(textSlots[i].transform.childCount > 0)
-				Destroy(textSlots[i].transform.GetChild(0));
+				Destroy(textSlots[i].transform.GetChild(0).gameObject);
 		}
 	}
 
