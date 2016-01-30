@@ -9,6 +9,7 @@ public class CombatInputHandling : MonoBehaviour {
     const int maxChain = 5;
     public GameObject[] slots = new GameObject[maxChain];
     private int[] spell = new int[maxChain];
+    private int delayTimer = -1;
 	// Use this for initialization
 	void Start () {
         //slots[0].GetComponent<SpriteRenderer>().sprite = arrows[0];
@@ -39,6 +40,20 @@ public class CombatInputHandling : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.D))
         {
             setArrow("right");
+        }
+
+        if(delayTimer > 0)
+        {
+            delayTimer--;
+        }
+        if(delayTimer == 0)
+        {
+            delayTimer--;
+            for (int i = 0; i < maxChain; i++)
+            {
+                slots[i].GetComponent<SpriteRenderer>().sprite = null;
+                spell[i] = 0;
+            }
         }
     }
 
@@ -80,23 +95,20 @@ public class CombatInputHandling : MonoBehaviour {
 
     public bool isReady()
     {
-        if(slots[maxChain-1].GetComponent<SpriteRenderer>().sprite != null)
+        if (delayTimer == -1)
         {
-            return true;
+            if (slots[maxChain - 1].GetComponent<SpriteRenderer>().sprite != null)
+            {
+                return true;
+            }
         }
         return false;
     }
 
     public int[] TakeSpell()
     {
-        int[] tempSpell = spell;
         
-        for(int i = 0; i<maxChain; i++)
-        {
-            slots[i].GetComponent<SpriteRenderer>().sprite = null;
-            spell[i] = 0;
-        }
-
-        return tempSpell;
+        delayTimer = 20;
+        return spell;
     }
 }
