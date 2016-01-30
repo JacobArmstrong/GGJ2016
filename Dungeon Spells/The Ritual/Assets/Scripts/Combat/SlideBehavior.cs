@@ -5,12 +5,8 @@ public class SlideBehavior : MonoBehaviour {
 	public Vector2 targetLocation;
 	public float slideLerpRate;
 
-	private Vector2 startPosition;
-	private float slideDistance;
 	// Use this for initialization
 	void Start () {
-		startPosition = transform.position;
-		slideDistance = Vector2.Distance (startPosition, targetLocation);
 	}
 	
 	// Update is called once per frame
@@ -21,6 +17,6 @@ public class SlideBehavior : MonoBehaviour {
 
 	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
-		Gizmos.DrawSphere(targetLocation, 0.5f);
+		Gizmos.DrawSphere (targetLocation, 0.5f);
 	}
 }
