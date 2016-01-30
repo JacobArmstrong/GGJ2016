@@ -20,14 +20,10 @@ public class SpellBook : MonoBehaviour {
 	void Start () {
 		startPosition = transform.position;
 
-		spellList.Add(new Spell("Fire", "uuuuu"));
-		spellList.Add(new Spell("Grape Soda", "uudlr"));
-		spellList.Add(new Spell("Mangrove", "udlrl"));
-		spellList.Add(new Spell("Crab", "urldd"));
-		spellList.Add(new Spell("Fire", "uuuuu"));
-		spellList.Add(new Spell("Grape Soda", "uudlr"));
-		spellList.Add(new Spell("Mangrove", "udlrl"));
-		spellList.Add(new Spell("Crab", "urldd"));
+		spellList.Add(new Spell("Fire", "udulr"));
+		spellList.Add(new Spell("Grape Soda", "dduur"));
+		spellList.Add(new Spell("Mangrove", "urdlu"));
+		spellList.Add(new Spell("Crab", "lrdur"));
 		startIndex = 0;
 		endIndex = 5;
 		DrawSpells (startIndex, endIndex);
