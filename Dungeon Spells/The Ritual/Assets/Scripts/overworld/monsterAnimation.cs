@@ -7,7 +7,7 @@ public class monsterAnimation : MonoBehaviour {
 
     private float timer;
     private int index = 0;
-    private SpriteRenderer renderer;
+    private new SpriteRenderer renderer;
 	// Use this for initialization
 	void Start () {
         timer = timeBetweenSprites;
@@ -21,7 +21,7 @@ public class monsterAnimation : MonoBehaviour {
         if(timer <= 0)
         {
             //increment index, wrapping around if necessary
-            if (index >= sprites.Length)
+            if (index >= sprites.Length - 1)
                 index = 0;
             else
                 index++;
