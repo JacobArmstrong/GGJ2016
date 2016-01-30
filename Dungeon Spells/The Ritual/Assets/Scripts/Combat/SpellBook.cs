@@ -21,9 +21,9 @@ public class SpellBook : MonoBehaviour {
 		startPosition = transform.position;
 
 		spellList.Add(new Spell("Fire", "udulr"));
-		spellList.Add(new Spell("Grape Soda", "dduur"));
-		spellList.Add(new Spell("Mangrove", "urdlu"));
-		spellList.Add(new Spell("Crab", "lrdur"));
+		spellList.Add(new Spell("Rock", "dduur"));
+		spellList.Add(new Spell("Mega", "urdlu"));
+		spellList.Add(new Spell("Explosive", "lrdur"));
 		startIndex = 0;
 		endIndex = 5;
 		DrawSpells (startIndex, endIndex);
