@@ -47,14 +47,12 @@ public class SpellBook : MonoBehaviour {
 				startIndex -= 6;
 				endIndex -= 6;
 				DrawSpells (startIndex, endIndex);
-				Debug.Log("A PRESSED");
 			}
 			if (Input.GetKeyDown(KeyCode.D) && endIndex < spellList.Count)
 			{
 				startIndex += 6;
 				endIndex += 6;
 				DrawSpells (startIndex, endIndex);
-				Debug.Log("D PRESSED");
 			}
 		}
 		else
