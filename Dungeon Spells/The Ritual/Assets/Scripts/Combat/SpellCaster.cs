@@ -8,6 +8,8 @@ public class SpellCaster : MonoBehaviour {
     public GameObject enemy;
 
     private bool explosive = false;
+    private bool mega = false;
+    private bool soft = false;
 
 	// Use this for initialization
 	void Start () {
@@ -40,9 +42,43 @@ public class SpellCaster : MonoBehaviour {
             {
                 enemyDamage = enemyDamage * 1.5f;
             }
+            if (mega)
+            {
+                enemyDamage += 10;
+            }
+            resetSpell();
+        }
+        else if(spellName == "rock")
+        {
+            GetComponent<SpriteRenderer>().sprite = fireSpell;
+            enemyDamage = 5;
+            if (mega)
+            {
+                enemyDamage += 10;
+            }
+            if (explosive)
+            {
+                enemyDamage = enemyDamage * 2;
+            }
+            resetSpell();
+        }
+
+        else if(spellName == "mega")
+        {
+            mega = true;
+        }
+        else if(spellName == "explosive")
+        {
+            explosive = true;
         }
 
         enemy.GetComponent<EntityStats>().Damage((int)enemyDamage);
 
+    }
+
+    private void resetSpell()
+    {
+        mega = false;
+        explosive = false;
     }
 }
