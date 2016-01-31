@@ -11,7 +11,7 @@ public class KnownSpells : MonoBehaviour {
 	public float iconHolderYOffset;
 	public float iconXBuffer;
 	
-	public static List<Spell> spellList = new List<Spell> ();
+	public List<Spell> spellList = new List<Spell> ();
 	
 	private Vector2 startPosition;
 	private bool bGetOnScreen = false;

@@ -136,7 +136,7 @@ public class SpellCaster : MonoBehaviour
                 enemyDamage = enemyDamage * 2.0f;
             }
             resetSpell();
-            totalSpellName += "Evisceration!";
+            totalSpellName += "Telepethy!";
         }
 
 
