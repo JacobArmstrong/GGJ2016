@@ -4,16 +4,17 @@ using System.Collections;
 public class UnlockedSpells : MonoBehaviour {
 
     // SPELL INDEX
-    // 0 = fire (fin)
-    // 1 = rock (fin)
-    // 2 = mega (mod)
-    // 3 = explosive (mod)
-    // 4 = soft (mod)
-    // 5 = 
-    // 6 = 
-    // 7 = gun (fin)
+    // 0 = Conflaguration (fin)
+    // 1 = Eviceration (fin)
+    // 2 = Telepathy (fin)
+    // 3 = burning (mod)
+    // 4 = berzerk (mod)
+    // 5 = maddening (mod)
+    // 6 = Pestulant (mod)
+    // 7 = Paralyzing (mod)
+    // 8 = arcane (mod)
 
-    private static bool[] SpellStatus = { true, true, true, true, false, false, false, false };
+    private static bool[] SpellStatus = { true, true, true, true, false, false, false, false, false };
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,8 @@ public class UnlockedSpells : MonoBehaviour {
         return SpellStatus[spell];
     }
 
-    public void gameReset()
+    public static void gameReset()
     {
-        SpellStatus = new bool[]{ true, true, true, true, false, false, false, false };
+        SpellStatus = new bool[] { true, true, true, true, false, false, false, false, false };
     }
 }

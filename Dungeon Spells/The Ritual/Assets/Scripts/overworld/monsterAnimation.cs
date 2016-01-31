@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class monsterAnimation : MonoBehaviour {
+public class monsterAnimation : MonoBehaviour
+{
     public Sprite[] sprites = new Sprite[0];
     public float timeBetweenSprites;
 
@@ -9,14 +10,16 @@ public class monsterAnimation : MonoBehaviour {
     private int index = 0;
     private new SpriteRenderer renderer;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         timer = timeBetweenSprites;
         renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = sprites[index];
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         timer -= Time.deltaTime;
         if(timer <= 0)
         {

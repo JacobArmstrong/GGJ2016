@@ -26,13 +26,15 @@ public class KnownSpells : MonoBehaviour {
 
         startPosition = transform.position;
 
-        if (unlocked.IsSpellUnlocked(0)) spellList.Add(new Spell("Fire", "udulr"));
-        if (unlocked.IsSpellUnlocked(1)) spellList.Add(new Spell("Rock", "dduur"));
-        if (unlocked.IsSpellUnlocked(2)) spellList.Add(new Spell("Mega", "urdlu"));
-        if (unlocked.IsSpellUnlocked(3)) spellList.Add(new Spell("Explosive", "lrdur"));
-        if (unlocked.IsSpellUnlocked(4)) spellList.Add(new Spell("Soft", "ddddd"));
-
-        if (unlocked.IsSpellUnlocked(7)) spellList.Add(new Spell("gun", "rlrud"));
+        if (unlocked.IsSpellUnlocked(0)) spellList.Add(new Spell("Conflagration", "udulr"));
+        if (unlocked.IsSpellUnlocked(1)) spellList.Add(new Spell("Evisceration", "rlrlr"));
+        if (unlocked.IsSpellUnlocked(2)) spellList.Add(new Spell("Telepathy", "uudlr"));
+        if (unlocked.IsSpellUnlocked(3)) spellList.Add(new Spell("Immolating", "rluuu"));
+        if (unlocked.IsSpellUnlocked(4)) spellList.Add(new Spell("Berserk", "lrlrl"));
+        if (unlocked.IsSpellUnlocked(5)) spellList.Add(new Spell("Maddening", "uldru"));
+        if (unlocked.IsSpellUnlocked(6)) spellList.Add(new Spell("Pestulant", "lrdud"));
+        if (unlocked.IsSpellUnlocked(7)) spellList.Add(new Spell("Paralyzing", "dlrdd"));
+        if (unlocked.IsSpellUnlocked(8)) spellList.Add(new Spell("Arcane", "udrlu"));
 
         startIndex = 0;
         endIndex = 5;
@@ -79,12 +81,15 @@ public class KnownSpells : MonoBehaviour {
 				//create an empty game object to hold input icons
 				GameObject iconHolder = new GameObject(spellList[i].name +"'s icon holder");
 				iconHolder.transform.position = textSlots[textSlotIndex].transform.position + (new Vector3(iconHolderXOffset, iconHolderYOffset, 0.0f));
+                
 				//attach the new game object to its respective text slot
 				iconHolder.transform.SetParent(textSlots[textSlotIndex].transform);
+                
+                //Draw icons to the icon holder
+                DrawIcons(spellList[i].code, iconHolder);
 
-				//Draw icons to the icon holder
-				DrawIcons(spellList[i].code, iconHolder);
-			}
+                iconHolder.transform.localScale = new Vector3(15, 15, 15);
+            }
 		}
 	}
 	void ClearText(){
