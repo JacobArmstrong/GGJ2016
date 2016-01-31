@@ -20,11 +20,12 @@ public class SpellBook : MonoBehaviour {
 	void Start () {
 		startPosition = transform.position;
 
-		spellList.Add(new Spell("Fire", "uuuuu"));
-		spellList.Add(new Spell("WAWDAH", "uudlr"));
-		spellList.Add(new Spell("Soft? earth", "udlrl"));
-		spellList.Add(new Spell("$Money$", "urldd"));
-		startIndex = 0;
+		spellList.Add(new Spell("Fire", "udulr"));
+		spellList.Add(new Spell("ROCK!", "dduur"));
+		spellList.Add(new Spell("Mega", "urdlu"));
+		spellList.Add(new Spell("Explosion", "lrdur"));
+        spellList.Add(new Spell("Soft", "ddddd"));
+        startIndex = 0;
 		endIndex = 5;
 		DrawSpells (startIndex, endIndex);
 	}
@@ -113,4 +114,9 @@ public class SpellBook : MonoBehaviour {
 		Gizmos.color = Color.red;
 		Gizmos.DrawSphere(targetLocation, 0.5f);
 	}
+
+    public bool getBGetOnScreen()
+    {
+        return bGetOnScreen;
+    }
 }
