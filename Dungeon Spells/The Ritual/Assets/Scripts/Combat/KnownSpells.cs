@@ -16,18 +16,28 @@ public class KnownSpells : MonoBehaviour {
 	private Vector2 startPosition;
 	private bool bGetOnScreen = false;
 	private int startIndex, endIndex;
-	// Use this for initialization
-	void Start () {
-		startPosition = transform.position;
 
-		spellList.Add(new Spell("Fire", "udulr"));
-		spellList.Add(new Spell("Rock", "dduur"));
-		spellList.Add(new Spell("Mega", "urdlu"));
-		spellList.Add(new Spell("Explosive", "lrdur"));
-		startIndex = 0;
-		endIndex = 5;
-		DrawSpells (startIndex, endIndex);
-	}
+    public GameObject AllUnlocked;
+
+    // Use this for initialization
+    void Start()
+    {
+        UnlockedSpells unlocked = AllUnlocked.GetComponent<UnlockedSpells>();
+
+        startPosition = transform.position;
+
+        if (unlocked.IsSpellUnlocked(0)) spellList.Add(new Spell("Fire", "udulr"));
+        if (unlocked.IsSpellUnlocked(1)) spellList.Add(new Spell("Rock", "dduur"));
+        if (unlocked.IsSpellUnlocked(2)) spellList.Add(new Spell("Mega", "urdlu"));
+        if (unlocked.IsSpellUnlocked(3)) spellList.Add(new Spell("Explosive", "lrdur"));
+        if (unlocked.IsSpellUnlocked(4)) spellList.Add(new Spell("Soft", "ddddd"));
+
+        if (unlocked.IsSpellUnlocked(7)) spellList.Add(new Spell("gun", "rlrud"));
+
+        startIndex = 0;
+        endIndex = 5;
+        DrawSpells(startIndex, endIndex);
+    }
 	
 	// Update is called once per frame
 	void Update () {
