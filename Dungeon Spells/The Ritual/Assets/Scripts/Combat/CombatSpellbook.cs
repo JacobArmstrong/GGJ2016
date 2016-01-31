@@ -36,92 +36,70 @@ public class CombatSpellbook : MonoBehaviour {
     private string IdentifySpell(int[] spell)
     {
         string spellName = "";
-        if(spell[0] == 0)
+        if (spell[0] == 0 && spell[1] == 1 && spell[2] == 0 && spell[3] == 2 && spell[4] == 3)
         {
-            if(spell[1] == 1)
+            if (unlocked.IsSpellUnlocked(0))
             {
-                if(spell[2] == 0)
-                {
-                    if(spell[3] == 2)
-                    {
-                        if(spell[4] == 3)
-                        {
-                            if (unlocked.IsSpellUnlocked(0))
-                            {
-                                spellName = "fire";
-                            }
-                        }
-                    }
-                }
-            }
-            else if(spell[1] == 3)
-            {
-                if(spell[2] == 1)
-                {
-                    if(spell[3] == 2)
-                    {
-                        if(spell[4] == 0)
-                        {
-                            if (unlocked.IsSpellUnlocked(2))
-                            {
-                                spellName = "mega";
-                            }
-                        }
-                    }
-                }
+                spellName = "Conflagration";
             }
         }
-        else if(spell[0] == 1)
+        else if (spell[0] == 3 && spell[1] == 2 && spell[2] == 3 && spell[3] == 2 && spell[4] == 3)
         {
-            if(spell[1] == 1)
+            if (unlocked.IsSpellUnlocked(1))
             {
-                if(spell[2] == 0)
-                {
-                    if(spell[3] == 0)
-                    {
-                        if(spell[4] == 3)
-                        {
-                            if (unlocked.IsSpellUnlocked(1))
-                            {
-                                spellName = "rock";
-                            }
-                        }
-                    }
-                }
-                else if(spell[2] == 1)
-                {
-                    if(spell[3] == 1)
-                    {
-                        if(spell[4] == 1)
-                        {
-                            if (unlocked.IsSpellUnlocked(4))
-                            {
-                                spellName = "soft";
-                            }
-                        }
-                    }
-                }
+                spellName = "Evisceration";
             }
         }
-        else if (spell[0] == 2)
+        else if (spell[0] == 0 && spell[1] == 0 && spell[2] == 1 && spell[3] == 2 && spell[4] == 3)
         {
-            if(spell[1] == 3)
+            if (unlocked.IsSpellUnlocked(2))
             {
-                if(spell[2] == 1)
-                {
-                    if(spell[3] == 0)
-                    {
-                        if(spell[4] == 3)
-                        {
-                            if (unlocked.IsSpellUnlocked(3))
-                            {
-                                spellName = "explosive";
-                            }
-                        }
-                    }
-                }
+                spellName = "Telepathy";
             }
         }
+        else if (spell[0] == 3 && spell[1] == 2 && spell[2] == 0 && spell[3] == 0 && spell[4] == 0)
+        {
+            if (unlocked.IsSpellUnlocked(3))
+            {
+                spellName = "Immolating";
+            }
+        }
+        else if (spell[0] == 2 && spell[1] == 3 && spell[2] == 2 && spell[3] == 3 && spell[4] == 2)
+        {
+            if (unlocked.IsSpellUnlocked(4))
+            {
+                spellName = "Berserk";
+            }
+        }
+        else if (spell[0] == 0 && spell[1] == 2 && spell[2] == 1 && spell[3] == 3 && spell[4] == 0)
+        {
+            if (unlocked.IsSpellUnlocked(5))
+            {
+                spellName = "Maddening";
+            }
+        }
+        else if (spell[0] == 2 && spell[1] == 3 && spell[2] == 1 && spell[3] == 0 && spell[4] == 1)
+        {
+            if (unlocked.IsSpellUnlocked(6))
+            {
+                spellName = "Pestulant";
+            }
+        }
+        else if (spell[0] == 1 && spell[1] == 2 && spell[2] == 3 && spell[3] == 1 && spell[4] == 1)
+        {
+            if (unlocked.IsSpellUnlocked(7))
+            {
+                spellName = "Paralyzing";
+            }
+        }
+        else if (spell[0] == 0 && spell[1] == 1 && spell[2] == 3 && spell[3] == 2 && spell[4] == 0)
+        {
+            if (unlocked.IsSpellUnlocked(8))
+            {
+                spellName = "Arcane";
+            }
+        }
+
         return spellName;
 
     }
