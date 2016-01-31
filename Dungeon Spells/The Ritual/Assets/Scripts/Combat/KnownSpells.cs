@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class SpellBook : MonoBehaviour {
+public class KnownSpells : MonoBehaviour {
 	public Vector2 targetLocation;
 	public float slideLerpRate;
 	public GameObject[] textSlots;
@@ -11,7 +11,7 @@ public class SpellBook : MonoBehaviour {
 	public float iconHolderYOffset;
 	public float iconXBuffer;
 	
-	public List<Spell> spellList = new List<Spell> ();
+	public static List<Spell> spellList = new List<Spell> ();
 	
 	private Vector2 startPosition;
 	private bool bGetOnScreen = false;
