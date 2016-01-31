@@ -8,7 +8,6 @@ public class monsterMovement : MonoBehaviour {
 
     private List<Vector3> possibleMoves = new List<Vector3>();
     private float timer;
-    private bool bIsValidMove = true;
 	// Use this for initialization
 	void Start () {
         timer = timeBetweenMoves;
@@ -53,8 +52,9 @@ public class monsterMovement : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("HELP IVE BEEN HIT");
-        bIsValidMove = false;
+    {s
+        Debug.Log(other.tag);
+        if(other.tag == "Player")
+            Debug.Log("HELP IVE BEEN HIT");
     }
 }

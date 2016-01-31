@@ -6,14 +6,19 @@ public class overworldMove : MonoBehaviour
     public float moveAmount;
     public float moveSpeed;
 
+    //deal with sprite animation
+    private int spriteIndex;
+    private float spriteTimer;
+    public float animationWaitTime;
+
     private new SpriteRenderer renderer;
     public Vector3 targetPosition;
     private Vector3 beginPosition;
     private float timeSpentMoving;
     private bool bIsMoving;
-    private float journeyLength;
 
     //Arrays to hold the sprites
+    public Sprite[] animationSet;
     public Sprite[] up = new Sprite[0];
     public Sprite[] left = new Sprite[0];
     public Sprite[] down = new Sprite[0];
@@ -24,11 +29,17 @@ public class overworldMove : MonoBehaviour
     {
         renderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
+        spriteIndex = 0;
+        renderer.sprite = down[spriteIndex];
+        spriteTimer = animationWaitTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //alarm for sprite animation change
+        spriteTimer -= Time.deltaTime;
+
         //checking the possible moves
         if (!bIsMoving)
         {
@@ -40,6 +51,7 @@ public class overworldMove : MonoBehaviour
                 {
                     targetPosition += Vector3.up * moveAmount;
                     initMovement();
+                    animationSet = up;
                 }
             }
             else if (Input.GetKey(KeyCode.S))
@@ -50,6 +62,7 @@ public class overworldMove : MonoBehaviour
                 {
                     targetPosition += Vector3.down * moveAmount;
                     initMovement();
+                    animationSet = down;
                 }
             }
             else if (Input.GetKey(KeyCode.A))
@@ -60,6 +73,7 @@ public class overworldMove : MonoBehaviour
                 {
                     targetPosition += Vector3.left * moveAmount;
                     initMovement();
+                    animationSet = left;
                 }
             }
             else if (Input.GetKey(KeyCode.D))
@@ -70,25 +84,39 @@ public class overworldMove : MonoBehaviour
                 {
                     targetPosition += Vector3.right * moveAmount;
                     initMovement();
+                    animationSet = right;
                 }
             }
         }
 
         //if the character is moving, gradually lerp them to their target
-        if (bIsMoving)
+        else
         {
             timeSpentMoving += Time.deltaTime;
+
             if (transform.position != targetPosition)
             {
                 float distCovered = timeSpentMoving / moveSpeed;
                 float fracJourney = distCovered / moveAmount;
                 transform.position = Vector3.Lerp(beginPosition, targetPosition, fracJourney);
+                if(spriteTimer <= 0)
+                {
+                    if (++spriteIndex > 3)
+                    {
+                        spriteIndex = 0;
+                    }
+                    renderer.sprite = animationSet[spriteIndex];
+                    spriteTimer = animationWaitTime;
+                }
+                
             }
             else
             {
                 bIsMoving = false;
                 timeSpentMoving = 0.0f;
                 targetPosition = transform.position;
+                spriteIndex = 0;
+                renderer.sprite = animationSet[spriteIndex];
             }
         }
     }
@@ -97,6 +125,5 @@ public class overworldMove : MonoBehaviour
     {
         bIsMoving = true;
         beginPosition = transform.position;
-        journeyLength = Vector3.Distance(transform.position, targetPosition);
     }
 }
