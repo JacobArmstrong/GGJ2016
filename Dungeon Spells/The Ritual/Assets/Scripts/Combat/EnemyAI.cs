@@ -10,8 +10,9 @@ public class EnemyAI : MonoBehaviour {
     public GameObject Player;
 
     public Sprite[] sprites = new Sprite[2];
-	// Use this for initialization
-	void Start () {
+    public Sprite[] spriteProjectile = new Sprite[2];
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -24,6 +25,7 @@ public class EnemyAI : MonoBehaviour {
             timer = 300;
             Player.GetComponent<SpriteRenderer>().sprite = sprites[1];
             animTimer = 50;
+            Caster.GetComponent<SpriteRenderer>().sprite = spriteProjectile[1];
         }
 
         if (animTimer > 0)
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour {
         {
             animTimer--;
             Player.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            Caster.GetComponent<SpriteRenderer>().sprite = spriteProjectile[0];
         }
     }
 }
