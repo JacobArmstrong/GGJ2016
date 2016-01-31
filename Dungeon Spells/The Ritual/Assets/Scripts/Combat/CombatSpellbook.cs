@@ -11,7 +11,7 @@ public class CombatSpellbook : MonoBehaviour {
     public Sprite[] sprites = new Sprite[2];
 
     public GameObject Player;
-    int animTimer = -1;
+    public int animTimer = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -39,7 +39,7 @@ public class CombatSpellbook : MonoBehaviour {
         else if(animTimer == 0)
         {
             animTimer--;
-            Player.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            Player.GetComponent<SpriteRenderer>().sprite = sprites[0];
         }
     }
 
@@ -119,7 +119,7 @@ public class CombatSpellbook : MonoBehaviour {
         if(spellName != "")
         {
             Player.GetComponent<SpriteRenderer>().sprite = sprites[1];
-            animTimer = 30;
+            animTimer = 50;
         }
 
         return spellName;
