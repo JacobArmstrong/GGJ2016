@@ -53,6 +53,7 @@ public class overworldMove : MonoBehaviour
                     initMovement();
                     animationSet = up;
                 }
+                renderer.sprite = up[spriteIndex];
             }
             else if (Input.GetKey(KeyCode.S))
             {
@@ -64,6 +65,7 @@ public class overworldMove : MonoBehaviour
                     initMovement();
                     animationSet = down;
                 }
+                renderer.sprite = down[spriteIndex];
             }
             else if (Input.GetKey(KeyCode.A))
             {
@@ -75,6 +77,7 @@ public class overworldMove : MonoBehaviour
                     initMovement();
                     animationSet = left;
                 }
+                renderer.sprite = left[spriteIndex];
             }
             else if (Input.GetKey(KeyCode.D))
             {
@@ -86,6 +89,7 @@ public class overworldMove : MonoBehaviour
                     initMovement();
                     animationSet = right;
                 }
+                renderer.sprite = right[spriteIndex];
             }
         }
 
