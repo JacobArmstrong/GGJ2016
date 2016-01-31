@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> a0aa38347518da93976e225397a136ec47e6779b
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class overworldMove : MonoBehaviour
@@ -24,7 +20,7 @@ public class overworldMove : MonoBehaviour
     public Sprite[] right = new Sprite[0];
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
@@ -34,7 +30,8 @@ public class overworldMove : MonoBehaviour
     void Update()
     {
         //checking the possible moves
-        if (!bIsMoving) {
+        if (!bIsMoving)
+        {
             if (Input.GetKey(KeyCode.W))
             {
                 //check up
@@ -81,7 +78,7 @@ public class overworldMove : MonoBehaviour
         if (bIsMoving)
         {
             timeSpentMoving += Time.deltaTime;
-            if(transform.position != targetPosition)
+            if (transform.position != targetPosition)
             {
                 float distCovered = timeSpentMoving / moveSpeed;
                 float fracJourney = distCovered / moveAmount;
@@ -102,8 +99,4 @@ public class overworldMove : MonoBehaviour
         beginPosition = transform.position;
         journeyLength = Vector3.Distance(transform.position, targetPosition);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a0aa38347518da93976e225397a136ec47e6779b

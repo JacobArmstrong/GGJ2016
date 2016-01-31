@@ -27,11 +27,8 @@ public class CombatInputHandling : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-<<<<<<< HEAD
         if (spellbook.GetComponent<KnownSpells>().GetBOnScreen() == false)
-=======
-        if (spellbook.GetComponent<KnownSpells>().getBGetOnScreen() == false)
->>>>>>> a0aa38347518da93976e225397a136ec47e6779b
+        //if (spellbook.GetComponent<KnownSpells>().getBGetOnScreen() == false)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
