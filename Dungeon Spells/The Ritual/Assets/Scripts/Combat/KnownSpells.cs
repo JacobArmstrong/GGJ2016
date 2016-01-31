@@ -81,12 +81,15 @@ public class KnownSpells : MonoBehaviour {
 				//create an empty game object to hold input icons
 				GameObject iconHolder = new GameObject(spellList[i].name +"'s icon holder");
 				iconHolder.transform.position = textSlots[textSlotIndex].transform.position + (new Vector3(iconHolderXOffset, iconHolderYOffset, 0.0f));
+                
 				//attach the new game object to its respective text slot
 				iconHolder.transform.SetParent(textSlots[textSlotIndex].transform);
+                
+                //Draw icons to the icon holder
+                DrawIcons(spellList[i].code, iconHolder);
 
-				//Draw icons to the icon holder
-				DrawIcons(spellList[i].code, iconHolder);
-			}
+                iconHolder.transform.localScale = new Vector3(15, 15, 15);
+            }
 		}
 	}
 	void ClearText(){

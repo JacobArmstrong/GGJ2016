@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour {
 
     public GameObject Caster;
-    int timer = 100;
+    int timer = 300;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,8 +15,8 @@ public class EnemyAI : MonoBehaviour {
         timer--;
         if(timer <= 0)
         {
-            Caster.GetComponent<SpellCaster>().setSpell("fire");
-            timer = 100;
+            Caster.GetComponent<SpellCaster>().setSpell("Evisceration");
+            timer = 300;
         }
 	}
 }
