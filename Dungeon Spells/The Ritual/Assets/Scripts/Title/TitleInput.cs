@@ -4,16 +4,18 @@ using System.Collections;
 public class TitleInput : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             UnlockedSpells.gameReset();
-            Application.LoadLevel("overworld");
+            Application.LoadLevel("Level1");
         }
     }
 }
