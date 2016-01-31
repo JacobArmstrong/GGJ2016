@@ -26,6 +26,12 @@ public class SpellBook : MonoBehaviour {
 		spellList.Add(new Spell("Explosion", "lrdur"));
         spellList.Add(new Spell("Soft", "ddddd"));
         startIndex = 0;
+=======
+		spellList.Add(new Spell("Rock", "dduur"));
+		spellList.Add(new Spell("Mega", "urdlu"));
+		spellList.Add(new Spell("Explosive", "lrdur"));
+		startIndex = 0;
+>>>>>>> 7343378bb8137074c7445aa12052c87ea015390c
 		endIndex = 5;
 		DrawSpells (startIndex, endIndex);
 	}
@@ -34,13 +40,24 @@ public class SpellBook : MonoBehaviour {
 	void Update () {
 		//switch bGetOnScreen when left shift is pressed
 		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
 			bGetOnScreen = !bGetOnScreen;
-		}
 
 		//if bGetOnScreen is true, go to target location, otherwise go to the starting location
-		if(bGetOnScreen)
+		if (bGetOnScreen) {
 			transform.position = Vector2.Lerp (transform.position, targetLocation, slideLerpRate * Time.deltaTime);
+			if (Input.GetKeyDown(KeyCode.A) && startIndex > 0)
+			{
+				startIndex -= 6;
+				endIndex -= 6;
+				DrawSpells (startIndex, endIndex);
+			}
+			if (Input.GetKeyDown(KeyCode.D) && endIndex < spellList.Count)
+			{
+				startIndex += 6;
+				endIndex += 6;
+				DrawSpells (startIndex, endIndex);
+			}
+		}
 		else
 			transform.position = Vector2.Lerp (transform.position, startPosition, slideLerpRate * Time.deltaTime);
 	}
@@ -50,7 +67,7 @@ public class SpellBook : MonoBehaviour {
 		ClearText ();
 
 		int textSlotIndex = 0;
-		for (int i=0; i <= endIndex; i++, textSlotIndex++){
+		for (int i=startIndex; i <= endIndex; i++, textSlotIndex++){
 			//make sure i doesn't exceed the range of spellList
 			if(i < spellList.Count){
 				//put the ith spell's name into the text
@@ -73,7 +90,7 @@ public class SpellBook : MonoBehaviour {
 			textSlots[i].GetComponent<TextMesh>().text = "";
 			//remove the input icons attatched to the text slots
 			if(textSlots[i].transform.childCount > 0)
-				Destroy(textSlots[i].transform.GetChild(0));
+				Destroy(textSlots[i].transform.GetChild(0).gameObject);
 		}
 	}
 
