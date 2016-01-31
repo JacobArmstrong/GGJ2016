@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using UnityEngine;
+=======
+﻿using UnityEngine;
+>>>>>>> a0aa38347518da93976e225397a136ec47e6779b
 using System.Collections;
 
 public class UnlockedSpells : MonoBehaviour {

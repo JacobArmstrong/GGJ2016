@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a0aa38347518da93976e225397a136ec47e6779b
 ﻿using UnityEngine;
 using System.Collections;
 
@@ -98,4 +102,8 @@ public class overworldMove : MonoBehaviour
         beginPosition = transform.position;
         journeyLength = Vector3.Distance(transform.position, targetPosition);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a0aa38347518da93976e225397a136ec47e6779b
