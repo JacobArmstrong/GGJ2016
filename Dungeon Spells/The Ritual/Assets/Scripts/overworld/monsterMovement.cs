@@ -52,7 +52,7 @@ public class monsterMovement : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D other)
-    {s
+    {
         Debug.Log(other.tag);
         if(other.tag == "Player")
             Debug.Log("HELP IVE BEEN HIT");
