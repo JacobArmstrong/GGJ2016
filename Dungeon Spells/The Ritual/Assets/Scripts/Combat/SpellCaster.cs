@@ -73,7 +73,7 @@ public class SpellCaster : MonoBehaviour {
             }
             
             resetSpell();
-            totalSpellName += "Fire!";
+            totalSpellName += "Conflagration!";
         }
         else if(spellName == "rock")
         {
