@@ -10,6 +10,8 @@ public class CombatInputHandling : MonoBehaviour {
     public GameObject[] slots = new GameObject[maxChain];
     private int[] spell = new int[maxChain];
     private int delayTimer = -1;
+    public GameObject spellbook;
+
 	// Use this for initialization
 	void Start () {
         //slots[0].GetComponent<SpriteRenderer>().sprite = arrows[0];
@@ -25,23 +27,25 @@ public class CombatInputHandling : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.W))
+        if (spellbook.GetComponent<SpellBook>().getBGetOnScreen() == false)
         {
-            setArrow("up");
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                setArrow("up");
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                setArrow("down");
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                setArrow("left");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                setArrow("right");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            setArrow("down");
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            setArrow("left");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            setArrow("right");
-        }
-
         if(delayTimer > 0)
         {
             delayTimer--;

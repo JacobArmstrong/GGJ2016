@@ -60,6 +60,10 @@ public class SpellCaster : MonoBehaviour {
             {
                 enemyDamage = enemyDamage * 2;
             }
+            if (soft)
+            {
+                enemyDamage = enemyDamage * 0.5f;
+            }
             resetSpell();
         }
 
@@ -71,6 +75,10 @@ public class SpellCaster : MonoBehaviour {
         {
             explosive = true;
         }
+        else if(spellName == "soft")
+        {
+            soft = true;
+        }
 
         enemy.GetComponent<EntityStats>().Damage((int)enemyDamage);
 
@@ -80,5 +88,6 @@ public class SpellCaster : MonoBehaviour {
     {
         mega = false;
         explosive = false;
+        soft = false;
     }
 }
