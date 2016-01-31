@@ -3,6 +3,7 @@ using System.Collections;
 
 public class changeLevel : MonoBehaviour
 {
+    
 
 	// Use this for initialization
 	void Start ()
@@ -21,6 +22,7 @@ public class changeLevel : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            UnlockedSpells.defeatedEnemies.Clear();
             nextLevel();
         }
     }

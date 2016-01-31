@@ -13,7 +13,7 @@ public class overworldMove : MonoBehaviour
 
     private new SpriteRenderer renderer;
     public Vector3 targetPosition;
-    private Vector3 beginPosition;
+    public Vector3 beginPosition;
     private float timeSpentMoving;
     private bool bIsMoving;
 
@@ -27,6 +27,10 @@ public class overworldMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //if the player is coming back from combat, go to their last known position
+        if (UnlockedSpells.bWasInCombat)
+            transform.position = UnlockedSpells.lastKnownPosition;
+
         renderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
         spriteIndex = 0;

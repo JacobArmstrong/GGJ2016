@@ -14,10 +14,30 @@ public class EntityStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         HealthCounter.GetComponent<TextMesh>().text = Health.ToString();
+
+        //when this entity runs out  of health
+        if (Health <= 0)
+            //if the entity is a player, go to a game over screen
+            if (tag == "Player")
+                GameOver();
+            else
+                GoToOverworld();
 	}
 
     public void Damage(int dmg)
     {
         Health -= dmg;
+    }
+
+    public void GameOver()
+    {
+        //We'll need to implement this later
+        Debug.Log("Player has died");
+    }
+
+    public void GoToOverworld()
+    {
+        //Load the previous level
+        Application.LoadLevel(UnlockedSpells.lastLevelIndex);
     }
 }
