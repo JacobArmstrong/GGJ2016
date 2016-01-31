@@ -25,43 +25,43 @@ public class monsterMovement : MonoBehaviour {
     {
         if(!bIsMoving)
         {
-            timer -= Time.deltaTime;
+        timer -= Time.deltaTime;
             if (timer <= 0)
-            {
-                //checking the possible moves
-                //check up
-                //first, do a raycast in the direction we want to go clamped by the distance we want to go
+        {
+            //checking the possible moves
+            //check up
+            //first, do a raycast in the direction we want to go clamped by the distance we want to go
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.up, moveAmount);
-                //if the raycast doesn't hit anything, the move is possible to do
-                if (hit.collider == null)
+            //if the raycast doesn't hit anything, the move is possible to do
+            if (hit.collider == null)
                     possibleMoves.Add(Vector3.up * moveAmount);
-                //check down
+            //check down
                 hit = Physics2D.Raycast(transform.position, Vector3.down, moveAmount);
-                //if the raycast doesn't hit anything, the move is possible to do
-                if (hit.collider == null)
+            //if the raycast doesn't hit anything, the move is possible to do
+            if (hit.collider == null)
                     possibleMoves.Add(Vector3.down * moveAmount);
-                //check left
+            //check left
                 hit = Physics2D.Raycast(transform.position, Vector3.left, moveAmount);
-                //if the raycast doesn't hit anything, the move is possible to do
-                if (hit.collider == null)
+            //if the raycast doesn't hit anything, the move is possible to do
+            if (hit.collider == null)
                     possibleMoves.Add(Vector3.left * moveAmount);
-                //check right
+            //check right
                 hit = Physics2D.Raycast(transform.position, Vector3.right, moveAmount);
-                //if the raycast doesn't hit anything, the move is possible to do
-                if (hit.collider == null)
+            //if the raycast doesn't hit anything, the move is possible to do
+            if (hit.collider == null)
                     possibleMoves.Add(Vector3.right * moveAmount);
-
-                //select a random move from the list of possible moves
-                if (possibleMoves.Count > 0)
+    
+            //select a random move from the list of possible moves
+            if (possibleMoves.Count > 0)
                 {
                     targetPosition += possibleMoves[(int)(Random.value * possibleMoves.Count)];
                     initMovement();
                 }
-                //clear the list of possible moves for the next iteration
-                possibleMoves.Clear();
+            //clear the list of possible moves for the next iteration
+            possibleMoves.Clear();
 
-                timer = timeBetweenMoves;
-            }
+            timer = timeBetweenMoves;
+        }
         }
 
         else
@@ -88,11 +88,11 @@ public class monsterMovement : MonoBehaviour {
     {
         bIsMoving = true;
         beginPosition = transform.position;
-    }
+	}
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-            Application.LoadLevel("Combat");
+    {s
+        Debug.Log(other.tag);
+        if(other.tag == "Player")
     }
 }
