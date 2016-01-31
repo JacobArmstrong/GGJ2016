@@ -8,6 +8,10 @@ public class CombatSpellbook : MonoBehaviour {
     public GameObject UnlockedSpells;
     private UnlockedSpells unlocked;
 
+    public Sprite[] sprites = new Sprite[2];
+
+    public GameObject Player;
+    public int animTimer = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +26,20 @@ public class CombatSpellbook : MonoBehaviour {
             string spellName = IdentifySpell(spell);
             if(spellName != "")
             {
+               
+
                 SpellAnimation.GetComponent<SpellCaster>().setSpell(spellName);
             }
+        }
+
+        if(animTimer > 0)
+        {
+            animTimer--;
+        }
+        else if(animTimer == 0)
+        {
+            animTimer--;
+            Player.GetComponent<SpriteRenderer>().sprite = sprites[0];
         }
     }
 
@@ -98,6 +114,12 @@ public class CombatSpellbook : MonoBehaviour {
             {
                 spellName = "Arcane";
             }
+        }
+
+        if(spellName != "")
+        {
+            Player.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            animTimer = 50;
         }
 
         return spellName;
