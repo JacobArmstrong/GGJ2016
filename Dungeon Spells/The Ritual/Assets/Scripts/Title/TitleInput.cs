@@ -3,17 +3,31 @@ using System.Collections;
 
 public class TitleInput : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    private bool bEnterPressed = false;
+    private new AudioSource audio;
+
+    // Use this for initialization
+    void Start () {
+        audio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            audio.Play();
+            bEnterPressed = true;
             UnlockedSpells.gameReset();
-            Application.LoadLevel("overworld");
         }
+
+        if (bEnterPressed)
+        {
+            if (!audio.isPlaying)
+            {
+                Application.LoadLevel("overworld");
+            }
+        }
+
+        Debug.Log(audio.isPlaying);
     }
 }
