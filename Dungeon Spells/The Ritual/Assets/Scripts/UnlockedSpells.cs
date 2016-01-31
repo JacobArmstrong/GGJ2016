@@ -13,7 +13,7 @@ public class UnlockedSpells : MonoBehaviour {
     // 6 = 
     // 7 = gun (fin)
 
-    private static bool[] SpellStatus = { true, true, true, true, false, false, false, false };
+    private static bool[] SpellStatus = { true, true, true, true, true, false, false, false };
 
 	// Use this for initialization
 	void Start () {

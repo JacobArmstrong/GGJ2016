@@ -38,14 +38,17 @@ public class SpellCaster : MonoBehaviour {
             GetComponent<SpriteRenderer>().sprite = fireSpell;
             enemyDamage = 10;
 
+            
             if (explosive)
             {
-                enemyDamage = enemyDamage * 1.5f;
+                enemyDamage = enemyDamage * 2.5f;
             }
             if (mega)
             {
-                enemyDamage += 10;
+                enemyDamage += 5;
             }
+
+
             resetSpell();
         }
         else if(spellName == "rock")
