@@ -26,11 +26,12 @@ public class KnownSpells : MonoBehaviour {
 
         startPosition = transform.position;
 
-        if (unlocked.IsSpellUnlocked(0)) spellList.Add(new Spell("Fire", "udulr"));
+        if (unlocked.IsSpellUnlocked(0)) spellList.Add(new Spell("Conflagration", "udulr"));
         if (unlocked.IsSpellUnlocked(1)) spellList.Add(new Spell("Rock", "dduur"));
         if (unlocked.IsSpellUnlocked(2)) spellList.Add(new Spell("Mega", "urdlu"));
         if (unlocked.IsSpellUnlocked(3)) spellList.Add(new Spell("Explosive", "lrdur"));
         if (unlocked.IsSpellUnlocked(4)) spellList.Add(new Spell("Soft", "ddddd"));
+        if (unlocked.IsSpellUnlocked(5)) spellList.Add(new Spell("Flagellation", "ddddd"));
 
         if (unlocked.IsSpellUnlocked(7)) spellList.Add(new Spell("gun", "rlrud"));
 
