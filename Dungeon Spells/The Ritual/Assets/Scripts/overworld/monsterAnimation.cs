@@ -9,8 +9,11 @@ public class monsterAnimation : MonoBehaviour
     private float timer;
     private int index = 0;
     private new SpriteRenderer renderer;
-	// Use this for initialization
-	void Start ()
+
+
+    public int monsterID;
+    // Use this for initialization
+    void Start ()
     {
         timer = timeBetweenSprites;
         renderer = GetComponent<SpriteRenderer>();
@@ -34,4 +37,33 @@ public class monsterAnimation : MonoBehaviour
             timer = timeBetweenSprites;
         }
 	}
+
+    void Awake()
+    {
+        bool objectFound = false;
+
+        if (UnlockedSpells.defeatedEnemies.Count > 0)
+        {
+            for (int i = 0; i < UnlockedSpells.defeatedEnemies.Count; i++)
+            {
+                if (UnlockedSpells.defeatedEnemies[i] == monsterID)
+                    objectFound = true;
+            }
+        }
+
+        if (objectFound)
+            Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            UnlockedSpells.bWasInCombat = true;
+            UnlockedSpells.lastKnownPosition = other.GetComponent<overworldMove>().beginPosition;
+            UnlockedSpells.lastLevelIndex = Application.loadedLevel;
+            UnlockedSpells.defeatedEnemies.Add(monsterID);
+            Application.LoadLevel("Combat");
+        }
+    }
 }

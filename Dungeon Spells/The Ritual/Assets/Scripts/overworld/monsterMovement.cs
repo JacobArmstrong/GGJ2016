@@ -6,8 +6,6 @@ public class monsterMovement : MonoBehaviour {
     public float moveAmount = 1.0f;
     public float moveSpeed;
 
-    public int monsterID;
-
     private bool bIsMoving;
     public Vector3 targetPosition;
     private Vector3 beginPosition;
@@ -15,23 +13,6 @@ public class monsterMovement : MonoBehaviour {
 
     private List<Vector3> possibleMoves = new List<Vector3>();
     private float timer;
-
-    void Awake()
-    {
-        bool objectFound = false;
-
-        if (UnlockedSpells.defeatedEnemies.Count > 0)
-        {
-            for (int i = 0; i < UnlockedSpells.defeatedEnemies.Count; i++)
-            {
-                if (UnlockedSpells.defeatedEnemies[i] == monsterID)
-                    objectFound = true;
-            }
-        }
-
-        if (objectFound)
-            Destroy(gameObject);
-    }
 
 	// Use this for initialization
 	void Start ()
@@ -111,17 +92,5 @@ public class monsterMovement : MonoBehaviour {
     {
         bIsMoving = true;
         beginPosition = transform.position;
-	}
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            UnlockedSpells.bWasInCombat = true;
-            UnlockedSpells.lastKnownPosition = other.GetComponent<overworldMove>().beginPosition;
-            UnlockedSpells.lastLevelIndex = Application.loadedLevel;
-            UnlockedSpells.defeatedEnemies.Add(monsterID);
-            Application.LoadLevel("Combat");
-        }
     }
 }

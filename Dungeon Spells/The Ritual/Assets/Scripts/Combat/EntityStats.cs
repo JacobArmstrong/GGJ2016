@@ -31,8 +31,7 @@ public class EntityStats : MonoBehaviour {
 
     public void GameOver()
     {
-        //We'll need to implement this later
-        Debug.Log("Player has died");
+        Application.LoadLevel("GameOver");
     }
 
     public void GoToOverworld()

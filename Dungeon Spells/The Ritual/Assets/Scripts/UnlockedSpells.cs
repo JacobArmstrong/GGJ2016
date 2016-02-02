@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class UnlockedSpells : MonoBehaviour {
 
     // SPELL INDEX
-    // 0 = Conflaguration (fin)
+    // 0 = Conflagration (fin)
     // 1 = Eviceration (fin)
     // 2 = Telepathy (fin)
     // 3 = burning (mod)
